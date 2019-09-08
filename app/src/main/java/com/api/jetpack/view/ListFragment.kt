@@ -24,10 +24,6 @@ class ListFragment : Fragment(), Injectable {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        fragment_dog_list_detail_bt_id.setOnClickListener{
-            val navToDetailFragmentAction = ListFragmentDirections.actionDetailFragment()
-            navToDetailFragmentAction.dogUUID = 5
-            Navigation.findNavController(it).navigate(navToDetailFragmentAction)
-        }
+
     }
 }

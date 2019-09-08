@@ -8,25 +8,5 @@
         android:layout_height="match_parent"
         tools:context=".view.ListFragment">
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/fragment_list_text_view_id"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:text="Dog Fragment List"
-            />
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fragment_dog_list_detail_bt_id"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_margin="8dp"
-            android:src="@drawable/ic_details_white_24dp"
-            android:visibility="visible"
-            />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

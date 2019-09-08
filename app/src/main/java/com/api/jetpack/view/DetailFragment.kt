@@ -27,10 +27,5 @@ class DetailFragment : Fragment(), Injectable {
         arguments?.let {
             dogUUID = DetailFragmentArgs.fromBundle(it).dogUUID
         }
-        fragment_detail_text_view_id.text = dogUUID.toString()
-        fragment_detail_show_list_bt_id.setOnClickListener{
-            val navToListFragment = DetailFragmentDirections.actionListFragment()
-            Navigation.findNavController(it).navigate(navToListFragment)
-        }
     }
 }
