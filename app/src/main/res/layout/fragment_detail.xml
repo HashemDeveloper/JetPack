@@ -3,10 +3,58 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".view.DetailFragment">
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/fragment_detail_dog_image_view_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/ic_launcher_background"
+            android:scaleType="fitCenter"
+            android:minHeight="@dimen/image_min_dp"
+            />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/fragment_detail_dog_name_view_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/fragment_detail_dog_image_view_id"
+            android:text="@string/dog_name"
+            style="@style/Title"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="4dp"
+            />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/fragment_detail_dog_purpose_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/fragment_detail_dog_name_view_id"
+            style="@style/Text"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="4dp"
+            android:text="@string/purpose"
+            />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/fragment_detail_dog_temperament_view_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/Text"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/fragment_detail_dog_purpose_id"
+            android:layout_margin="4dp"
+            android:text="@string/temperament"
+            />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/fragment_detail_dog_lifespan_view_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/fragment_detail_dog_temperament_view_id"
+            android:layout_centerHorizontal="true"
+            style="@style/Text"
+            android:layout_margin="4dp"
+            android:text="@string/lifespan"
+            />
+    </RelativeLayout>
 </layout>

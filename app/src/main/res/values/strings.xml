@@ -3,4 +3,9 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="error_occurred_while_loading_data">Error occurred while loading data</string>
+    <string name="dog_name">Dog Name</string>
+    <string name="lifespan">Lifespan</string>
+    <string name="purpose">Purpose</string>
+    <string name="temperament">Temperament</string>
 </resources>
