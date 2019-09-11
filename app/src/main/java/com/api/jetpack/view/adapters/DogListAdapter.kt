@@ -22,7 +22,7 @@ class DogListAdapter(val dogList: ArrayList<DogBreed>) : RecyclerView.Adapter<Do
         return this.dogList.size
     }
 
-    fun setDoglistData(dogList: ArrayList<DogBreed>) {
+    fun setDoglistData(dogList: List<DogBreed>) {
         this.dogList.clear()
         this.dogList.addAll(dogList)
         notifyDataSetChanged()
