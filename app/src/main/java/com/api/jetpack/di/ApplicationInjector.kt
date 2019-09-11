@@ -25,6 +25,7 @@ object ApplicationInjector {
             }
 
             override fun onActivityDestroyed(p0: Activity) {
+
             }
 
             override fun onActivitySaveInstanceState(p0: Activity, p1: Bundle) {
@@ -37,6 +38,7 @@ object ApplicationInjector {
             }
 
             override fun onActivityResumed(p0: Activity) {
+
             }
         })
     }
@@ -50,11 +52,10 @@ object ApplicationInjector {
                     override fun onFragmentCreated(
                         fm: FragmentManager,
                         f: Fragment,
-                        savedInstanceState: Bundle?
-                    ) {
-                       if (f is Injectable) {
-                           AndroidSupportInjection.inject(f)
-                       }
+                        savedInstanceState: Bundle?) {
+//                       if (f is Injectable) {
+//                           AndroidSupportInjection.inject(f)
+//                       }
                     }
                 }, true)
         }

@@ -10,6 +10,7 @@ import androidx.navigation.Navigation
 
 import com.api.jetpack.R
 import com.api.jetpack.di.Injectable
+import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.fragment_detail.*
 
 class DetailFragment : Fragment(), Injectable {
@@ -19,6 +20,7 @@ class DetailFragment : Fragment(), Injectable {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        AndroidSupportInjection.inject(this)
         return inflater.inflate(R.layout.fragment_detail, container, false)
     }
 
