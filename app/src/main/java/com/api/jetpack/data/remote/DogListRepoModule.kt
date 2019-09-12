@@ -1,4 +1,4 @@
-package com.api.jetpack.di.data.remote
+package com.api.jetpack.data.remote
 
 import dagger.Module
 import dagger.Provides

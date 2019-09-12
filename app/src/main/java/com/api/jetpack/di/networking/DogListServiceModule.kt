@@ -1,6 +1,6 @@
 package com.api.jetpack.di.networking
 
-import com.api.jetpack.di.data.remote.DogListRepoModule
+import com.api.jetpack.data.remote.DogListRepoModule
 import dagger.Module
 import dagger.Provides
 import okhttp3.Call

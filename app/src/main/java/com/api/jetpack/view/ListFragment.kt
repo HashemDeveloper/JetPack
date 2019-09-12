@@ -9,14 +9,13 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.Navigation
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 
 import com.api.jetpack.R
 import com.api.jetpack.di.Injectable
 import com.api.jetpack.view.adapters.DogListAdapter
 import com.api.jetpack.viewmodel.DogListViewModel
+import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.fragment_list.*
 import javax.inject.Inject
 
@@ -26,15 +25,15 @@ class ListFragment : Fragment(), Injectable {
 
     @Inject
     lateinit var viewmodeFactory: ViewModelProvider.Factory
-
-    private val dogListViewModel: DogListViewModel by viewModels {
-        viewmodeFactory
+    val dogListViewModel: DogListViewModel by viewModels {
+        this.viewmodeFactory
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        AndroidSupportInjection.inject(this)
         return inflater.inflate(R.layout.fragment_list, container, false)
     }
 
