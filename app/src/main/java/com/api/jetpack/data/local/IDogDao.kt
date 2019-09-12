@@ -8,13 +8,15 @@ import io.reactivex.Single
 @Dao
 interface IDogDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertDogData(dogBreed: DogBreed): Long
+    suspend fun insertDogData(vararg dogBreed: DogBreed): List<Long>
     @Update
-    fun updateDogData(dogBreed: DogBreed)
-    @Delete
-    fun deleteDogData(dogBreed: DogBreed)
-    @Query("select * from dog_breed where dog_id ==:id")
-    fun getDogBreedsById(id: String): Single<DogBreed>
+    suspend fun updateDogData(dogBreed: DogBreed)
+    @Query("delete from dog_breed")
+    suspend fun deleteAllDogData()
+    @Query("select * from dog_breed where id ==:id")
+    suspend fun getDogBreedsById(id: Long): DogBreed
     @Query("select * from dog_breed")
-    fun getAllDogBreeds(): Observable<DogBreed>
+    suspend fun getAllDogBreeds(): List<DogBreed>
+    @Delete
+    suspend fun deleteDogBy(breed: DogBreed)
 }
