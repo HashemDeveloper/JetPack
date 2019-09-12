@@ -4,6 +4,7 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
+import java.util.*
 
 @Entity(tableName = "dog_breed")
 data class DogBreed(
@@ -39,4 +40,11 @@ data class DogBreed(
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
     private var uuid: Long = 0
+
+    fun getUuid(): Long {
+        return this.uuid
+    }
+    fun setUuid(uuid: Long) {
+        this.uuid = uuid
+    }
 }

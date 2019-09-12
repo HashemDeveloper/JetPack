@@ -1,4 +1,4 @@
-package com.api.jetpack.di.data.remote
+package com.api.jetpack.data.remote
 
 import com.api.jetpack.model.DogBreed
 import io.reactivex.Single

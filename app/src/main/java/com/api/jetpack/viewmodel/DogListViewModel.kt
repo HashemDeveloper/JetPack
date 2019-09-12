@@ -4,7 +4,7 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.api.jetpack.di.data.remote.DogListRepo
+import com.api.jetpack.data.remote.DogListRepo
 import com.api.jetpack.model.DogBreed
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
