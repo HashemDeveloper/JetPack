@@ -15,6 +15,7 @@
             android:src="@drawable/ic_launcher_background"
             android:scaleType="fitCenter"
             android:minHeight="@dimen/image_min_dp"
+            android:layout_marginTop="16dp"
             />
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/fragment_detail_dog_name_view_id"

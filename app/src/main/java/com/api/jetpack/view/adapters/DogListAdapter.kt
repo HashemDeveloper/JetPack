@@ -3,11 +3,13 @@ package com.api.jetpack.view.adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.api.jetpack.R
 import com.api.jetpack.model.DogBreed
 import com.api.jetpack.utils.getProgressDrawable
 import com.api.jetpack.utils.loadImage
+import com.api.jetpack.view.ListFragmentDirections
 import kotlinx.android.synthetic.main.fragment_list_item_layout.view.*
 
 class DogListAdapter(val dogList: ArrayList<DogBreed>) : RecyclerView.Adapter<DogListAdapter.DogListViewHolder>() {
@@ -30,6 +32,11 @@ class DogListAdapter(val dogList: ArrayList<DogBreed>) : RecyclerView.Adapter<Do
 
     override fun onBindViewHolder(holder: DogListViewHolder, position: Int) {
         holder.onBindView(this.dogList[position])
+        holder.view.setOnClickListener{
+            val action = ListFragmentDirections.actionDetailFragment()
+            action.dogUUID = dogList[position].getUuid().toInt()
+            Navigation.findNavController(it).navigate(action)
+        }
     }
 
     class DogListViewHolder(var view: View): RecyclerView.ViewHolder(view){

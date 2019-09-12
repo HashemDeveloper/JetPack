@@ -24,9 +24,9 @@ class ListFragment : Fragment(), Injectable {
     private val dogListAdapter = DogListAdapter(arrayListOf())
 
     @Inject
-    lateinit var viewmodeFactory: ViewModelProvider.Factory
-    val dogListViewModel: DogListViewModel by viewModels {
-        this.viewmodeFactory
+    lateinit var viewModelFactory: ViewModelProvider.Factory
+    private val dogListViewModel: DogListViewModel by viewModels {
+        this.viewModelFactory
     }
 
     override fun onCreateView(
@@ -48,7 +48,7 @@ class ListFragment : Fragment(), Injectable {
             fragment_list_recycler_view_id.visibility = View.GONE
             fragment_list_error_msg_view_id.visibility = View.GONE
             fragment_list_progress_bar_id.visibility = View.VISIBLE
-            this.dogListViewModel.refresh()
+            this.dogListViewModel.refreshBypassCache()
             fragment_list_refresh_view_id.isRefreshing = false
         }
         observeViewModel()

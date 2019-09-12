@@ -56,6 +56,9 @@ class DogListViewModel @Inject constructor(val dogListRepo: DogListRepo) : ViewM
             fetchDogDataFromRemote()
         }
     }
+    fun refreshBypassCache() {
+        fetchDogDataFromRemote()
+    }
     private fun fetchFromRoomDatabase() {
         this.isLoading.value = true
         launch {
