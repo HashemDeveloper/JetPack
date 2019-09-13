@@ -2,6 +2,7 @@ package com.api.jetpack.utils
 
 import android.content.Context
 import androidx.appcompat.widget.AppCompatImageView
+import androidx.databinding.BindingAdapter
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.api.jetpack.R
 import com.bumptech.glide.Glide
@@ -22,4 +23,9 @@ fun AppCompatImageView.loadImage(imageUrl: String?, progressDrawable: CircularPr
     Glide.with(this.context)
         .setDefaultRequestOptions(options)
         .load(imageUrl).into(this)
+}
+
+@BindingAdapter("android:imageUrl")
+fun loadImage(view: AppCompatImageView, url: String) {
+    view.loadImage(url, getProgressDrawable(view.context))
 }

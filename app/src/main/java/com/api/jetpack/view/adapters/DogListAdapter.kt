@@ -3,20 +3,28 @@ package com.api.jetpack.view.adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.api.jetpack.R
+import com.api.jetpack.databinding.FragmentListItemLayoutBinding
 import com.api.jetpack.model.DogBreed
 import com.api.jetpack.utils.getProgressDrawable
 import com.api.jetpack.utils.loadImage
 import com.api.jetpack.view.ListFragmentDirections
 import kotlinx.android.synthetic.main.fragment_list_item_layout.view.*
 
-class DogListAdapter(val dogList: ArrayList<DogBreed>) : RecyclerView.Adapter<DogListAdapter.DogListViewHolder>() {
+class DogListAdapter(val dogList: ArrayList<DogBreed>) :
+    RecyclerView.Adapter<DogListAdapter.DogListViewHolder>(), DogClickListener {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DogListViewHolder {
         val layoutInflater: LayoutInflater = LayoutInflater.from(parent.context)
-        val view = layoutInflater.inflate(R.layout.fragment_list_item_layout, parent, false)
+        val view = DataBindingUtil.inflate<FragmentListItemLayoutBinding>(
+            layoutInflater,
+            R.layout.fragment_list_item_layout,
+            parent,
+            false
+        )
         return DogListViewHolder(view)
     }
 
@@ -31,24 +39,17 @@ class DogListAdapter(val dogList: ArrayList<DogBreed>) : RecyclerView.Adapter<Do
     }
 
     override fun onBindViewHolder(holder: DogListViewHolder, position: Int) {
-        holder.onBindView(this.dogList[position])
-        holder.view.setOnClickListener{
-            val action = ListFragmentDirections.actionDetailFragment()
-            action.dogUUID = dogList[position].getUuid().toInt()
-            Navigation.findNavController(it).navigate(action)
-        }
+        holder.view.dog = this.dogList[position]
+        holder.view.listener = this
     }
 
-    class DogListViewHolder(var view: View): RecyclerView.ViewHolder(view){
-        private val dogImageView = view.fragment_list_item_dog_image_view_id
-        private val dogName = view.fragment_list_dog_name_view_id
-        private val lifespan = view.fragment_list_item_dog_lifespan_view_id
-        private val progressDrawable = getProgressDrawable(view.context)
-
-        internal fun onBindView(dogBreed: DogBreed) {
-            dogName.text = dogBreed.dogBreed
-            lifespan.text = dogBreed.lifespan
-            this.dogImageView.loadImage(dogBreed.imageUrl, this.progressDrawable)
-        }
+    override fun onDogItemClicked(v: View) {
+        val uuid = v.dogUuId.text.toString().toInt()
+        val action = ListFragmentDirections.actionDetailFragment()
+        action.dogUUID = uuid
+        Navigation.findNavController(v).navigate(action)
     }
+
+    class DogListViewHolder(var view: FragmentListItemLayoutBinding) :
+        RecyclerView.ViewHolder(view.root) {}
 }

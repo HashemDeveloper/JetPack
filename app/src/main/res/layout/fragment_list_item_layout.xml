@@ -1,15 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="dog"
+            type="com.api.jetpack.model.DogBreed" />
+        <variable
+            name="listener"
+            type="com.api.jetpack.view.adapters.DogClickListener" />
+    </data>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/dog_list_height_dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:onClick="@{listener::onDogItemClicked}"
+        >
+        <!--to store dog id for-->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/dogUuId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{String.valueOf(dog.uuid)}"
+            android:visibility="gone"
+            />
+        <!--ends-->
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/fragment_list_item_dog_image_view_id"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="2"
             android:padding="4dp"
+            android:imageUrl="@{dog.imageUrl}"
             />
         <LinearLayout
             android:layout_width="0dp"
@@ -23,7 +43,7 @@
                 android:id="@+id/fragment_list_dog_name_view_id"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/dog_name"
+                android:text="@{dog.dogBreed}"
                 style="@style/Title"
                 />
             <androidx.appcompat.widget.AppCompatTextView
@@ -31,7 +51,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/Text"
-                android:text="@string/lifespan"
+                android:text="@{dog.lifespan}"
                 />
         </LinearLayout>
     </LinearLayout>
