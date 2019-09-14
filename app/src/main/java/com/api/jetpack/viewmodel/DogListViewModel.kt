@@ -20,6 +20,8 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
+import java.lang.Exception
+import java.lang.NumberFormatException
 import javax.inject.Inject
 import kotlin.coroutines.CoroutineContext
 
@@ -52,11 +54,23 @@ class DogListViewModel @Inject constructor(val dogListRepo: DogListRepo) : ViewM
     }
 
     fun refresh() {
+        checkCacheDuration()
         val updateTime = this.sharedPreference.getUpdateTime()
         if (updateTime != null && updateTime != 0L && System.nanoTime() - updateTime < this.refreshTime) {
             fetchFromRoomDatabase();
         } else {
             fetchDogDataFromRemote()
+        }
+    }
+    private fun checkCacheDuration() {
+        val cachePreference = this.sharedPreference.getCacheDuration()
+        try {
+            val cachePreferenceInt = cachePreference?.toInt() ?: 5 * 60 //5 minutes and 60 sec each
+            this.refreshTime = cachePreferenceInt.times( 1000 * 1000 * 1000L)
+
+        } catch (e: NumberFormatException) {
+            if (e.localizedMessage != null)
+            Log.i("Exception: ", e.localizedMessage!!)
         }
     }
     fun refreshBypassCache() {
