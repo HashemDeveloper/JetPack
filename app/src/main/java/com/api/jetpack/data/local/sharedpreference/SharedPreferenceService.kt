@@ -33,4 +33,7 @@ class SharedPreferenceService @Inject constructor(): ISharedPrefService {
     override fun getUpdateTime(): Long? {
         return prefs?.getLong(PREF_TIME, 0)
     }
+    override fun getCacheDuration(): String? {
+        return prefs?.getString("pref_cache_id", "")
+    }
 }
