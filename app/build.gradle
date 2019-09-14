@@ -90,6 +90,9 @@ dependencies {
     //preferences for settings
     implementation "androidx.preference:preference-ktx:$prefernce_version"
 
+    // color palette
+    implementation "com.android.support:palette-v7:$palette_version"
+
     testImplementation 'junit:junit:4.12'
     testImplementation "org.mockito:mockito-inline:$mockitoVersion"
 
