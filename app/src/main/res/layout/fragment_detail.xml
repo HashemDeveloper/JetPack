@@ -1,18 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
-
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+    <data>
+        <variable
+            name="dog"
+            type="com.api.jetpack.model.DogBreed" />
+        <variable
+            name="palette"
+            type="com.api.jetpack.model.DogPalette" />
+    </data>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".view.DetailFragment">
+        tools:context=".view.DetailFragment"
+        >
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/fragment_detail_dog_image_view_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:src="@drawable/ic_launcher_background"
+            app:imageUrl="@{dog.imageUrl}"
             android:scaleType="fitCenter"
             android:minHeight="@dimen/image_min_dp"
             android:layout_marginTop="16dp"
@@ -22,7 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/fragment_detail_dog_image_view_id"
-            android:text="@string/dog_name"
+            android:text="@{dog.dogBreed}"
             style="@style/Title"
             android:layout_centerHorizontal="true"
             android:layout_margin="4dp"
@@ -35,7 +44,7 @@
             style="@style/Text"
             android:layout_centerHorizontal="true"
             android:layout_margin="4dp"
-            android:text="@string/purpose"
+            android:text="@{dog.breedGroup}"
             />
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/fragment_detail_dog_temperament_view_id"
@@ -45,7 +54,7 @@
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/fragment_detail_dog_purpose_id"
             android:layout_margin="4dp"
-            android:text="@string/temperament"
+            android:text="@{dog.temperament}"
             />
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/fragment_detail_dog_lifespan_view_id"
@@ -55,7 +64,7 @@
             android:layout_centerHorizontal="true"
             style="@style/Text"
             android:layout_margin="4dp"
-            android:text="@string/lifespan"
+            android:text="@{dog.lifespan}"
             />
     </RelativeLayout>
 </layout>

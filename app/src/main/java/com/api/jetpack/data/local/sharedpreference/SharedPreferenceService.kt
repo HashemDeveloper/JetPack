@@ -8,7 +8,6 @@ import javax.inject.Inject
 
 class SharedPreferenceService @Inject constructor(): ISharedPrefService {
 
-
     companion object {
         private const val PREF_TIME = "pref_time"
         private var prefs: SharedPreferences? = null
