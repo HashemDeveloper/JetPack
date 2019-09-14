@@ -6,6 +6,8 @@ import com.api.jetpack.data.local.IDogDao
 import com.api.jetpack.data.local.RoomDbService
 import com.api.jetpack.data.local.sharedpreference.ISharedPrefService
 import com.api.jetpack.data.local.sharedpreference.SharedPreferenceService
+import com.api.jetpack.utils.INotificationService
+import com.api.jetpack.utils.NotificationService
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -31,5 +33,10 @@ class ApplicationModule {
     @Provides
     fun provideSharedPref(service: SharedPreferenceService): ISharedPrefService {
         return service
+    }
+    @Singleton
+    @Provides
+    fun provideNotificationService(notificationService: NotificationService): INotificationService{
+        return notificationService
     }
 }
