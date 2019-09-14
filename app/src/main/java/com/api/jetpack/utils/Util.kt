@@ -25,7 +25,11 @@ fun AppCompatImageView.loadImage(imageUrl: String?, progressDrawable: CircularPr
         .load(imageUrl).into(this)
 }
 
-@BindingAdapter("android:imageUrl")
-fun loadImage(view: AppCompatImageView, url: String) {
+@BindingAdapter("app:imageUrl")
+fun loadImage(view: AppCompatImageView, url: String?) {
+    view.loadImage(url, getProgressDrawable(view.context))
+}
+@BindingAdapter("app:src")
+fun loadImageSrc(view: AppCompatImageView, url: String?) {
     view.loadImage(url, getProgressDrawable(view.context))
 }
