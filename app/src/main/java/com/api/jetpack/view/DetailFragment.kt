@@ -2,10 +2,7 @@ package com.api.jetpack.view
 
 
 import android.graphics.Bitmap
-import android.graphics.BitmapFactory
-import android.graphics.drawable.Drawable
 import android.os.Bundle
-import android.util.Base64
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -22,12 +19,7 @@ import com.api.jetpack.di.viewmodel.ViewModelFactory
 import com.api.jetpack.model.DogPalette
 import com.api.jetpack.viewmodel.DogDetailViewModel
 import com.bumptech.glide.Glide
-import com.bumptech.glide.RequestBuilder
-import com.bumptech.glide.request.Request
-import com.bumptech.glide.request.target.BitmapImageViewTarget
 import com.bumptech.glide.request.target.SimpleTarget
-import com.bumptech.glide.request.target.SizeReadyCallback
-import com.bumptech.glide.request.target.Target
 import com.bumptech.glide.request.transition.Transition
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject

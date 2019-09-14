@@ -2,8 +2,6 @@ package com.api.jetpack.data.local
 
 import androidx.room.*
 import com.api.jetpack.model.DogBreed
-import io.reactivex.Observable
-import io.reactivex.Single
 
 @Dao
 interface IDogDao {

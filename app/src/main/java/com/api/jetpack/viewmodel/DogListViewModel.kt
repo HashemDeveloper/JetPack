@@ -11,7 +11,6 @@ import com.api.jetpack.data.local.sharedpreference.ISharedPrefService
 import com.api.jetpack.data.remote.DogListRepo
 import com.api.jetpack.model.DogBreed
 import com.api.jetpack.utils.INotificationService
-import com.api.jetpack.utils.NotificationService
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableSingleObserver
@@ -20,7 +19,6 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
-import java.lang.Exception
 import java.lang.NumberFormatException
 import javax.inject.Inject
 import kotlin.coroutines.CoroutineContext

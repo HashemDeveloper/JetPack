@@ -1,11 +1,9 @@
 package com.api.jetpack.view
 
 
-import android.opengl.Visibility
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -19,7 +17,6 @@ import com.api.jetpack.di.Injectable
 import com.api.jetpack.view.adapters.DogListAdapter
 import com.api.jetpack.viewmodel.DogListViewModel
 import dagger.android.support.AndroidSupportInjection
-import kotlinx.android.synthetic.main.fragment_list.*
 import javax.inject.Inject
 
 class ListFragment : Fragment(), Injectable {
