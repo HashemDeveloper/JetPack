@@ -79,7 +79,7 @@ class DetailFragment : Fragment(), Injectable {
                 override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>?) {
                     Palette.from(resource)
                         .generate { palette ->
-                            val color = palette?.darkVibrantSwatch?.rgb ?: 0
+                            val color = palette?.lightMutedSwatch?.rgb ?: 0
                             val backgroundPalette = DogPalette(color)
                             bindingView.palette = backgroundPalette
                         }
