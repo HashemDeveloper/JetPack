@@ -10,6 +10,8 @@ import com.api.jetpack.data.local.IDogDao
 import com.api.jetpack.data.local.sharedpreference.ISharedPrefService
 import com.api.jetpack.data.remote.DogListRepo
 import com.api.jetpack.model.DogBreed
+import com.api.jetpack.utils.INotificationService
+import com.api.jetpack.utils.NotificationService
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableSingleObserver
@@ -30,7 +32,8 @@ class DogListViewModel @Inject constructor(val dogListRepo: DogListRepo) : ViewM
     private val isError: MutableLiveData<Boolean> = MutableLiveData()
     private val compositeDisposable = CompositeDisposable()
     private val job = Job()
-
+    @Inject
+    lateinit var notificationService: INotificationService
     @Inject
     lateinit var context: Context
     @Inject
@@ -75,6 +78,7 @@ class DogListViewModel @Inject constructor(val dogListRepo: DogListRepo) : ViewM
             .subscribeWith(object : DisposableSingleObserver<List<DogBreed>>(){
                 override fun onSuccess(t: List<DogBreed>) {
                     storeDogLocally(t) // storing data locally first
+                    notificationService.createNotification()
                 }
 
                 override fun onError(e: Throwable) {
