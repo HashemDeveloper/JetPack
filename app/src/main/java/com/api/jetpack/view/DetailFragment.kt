@@ -14,11 +14,8 @@ import com.api.jetpack.R
 import com.api.jetpack.databinding.FragmentDetailBinding
 import com.api.jetpack.di.Injectable
 import com.api.jetpack.di.viewmodel.ViewModelFactory
-import com.api.jetpack.utils.getProgressDrawable
-import com.api.jetpack.utils.loadImage
 import com.api.jetpack.viewmodel.DogDetailViewModel
 import dagger.android.support.AndroidSupportInjection
-import kotlinx.android.synthetic.main.fragment_detail.*
 import javax.inject.Inject
 
 class DetailFragment : Fragment(), Injectable {

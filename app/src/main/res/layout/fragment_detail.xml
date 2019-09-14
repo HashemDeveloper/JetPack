@@ -7,6 +7,9 @@
         <variable
             name="dog"
             type="com.api.jetpack.model.DogBreed" />
+        <variable
+            name="palette"
+            type="com.api.jetpack.model.DogPalette" />
     </data>
     <RelativeLayout
         android:layout_width="match_parent"
